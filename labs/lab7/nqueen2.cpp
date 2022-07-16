@@ -1,4 +1,4 @@
-// Lab 10:  N-queens using "constrained" backtracking 
+// Lab 7:  N-queens using "constrained" backtracking 
 
 int main(int argc, char *argv[]) {
 

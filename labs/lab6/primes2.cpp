@@ -1,4 +1,4 @@
-// Lab 9: Is it prime?
+// Lab 6: Is it prime?
 
 int main(int argc, char *argv[]) {
 

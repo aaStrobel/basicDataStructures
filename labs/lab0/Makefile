@@ -14,5 +14,5 @@ test:		test-output
 
 test-output:	solution
 	@echo Testing output...
-	@/home/jplank/cs140/Labs/Lab0/gradeall
+	@/home/jplank/cs202/Labs/Lab0/gradeall
 
