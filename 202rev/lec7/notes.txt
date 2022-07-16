@@ -1,0 +1,99 @@
+Prof. Scott
+Lecture date:  2/11/21
+
+-=-=-=-
+
+NOTE:  Most of these notes are based on information in Chapter 3 
+of D & D.  
+
+If you want extra background, please read at least section 3.6 (placing
+class in a separate file), 3.7 (separating interface from
+implementation) and Figure 3.14 (Compilation and linking process).  
+
+-  Defining classes with member functions (section 3.2)
+-  Data members, get and set functions (section 3.4)
+-  Access specifiers (also section 3.4)
+-  Interface (.h) and implementation (.cpp) : sections 3.6 and 3.7,
+    also see online lecture notes
+-  Preferred way to validate input: Section 3.8
+
+
+---
+
+"Composite types" contain multiple elements.  In C, a struct can 
+contain multiple variables, or pieces of data, all grouped together.
+
+Classes, however, can contain functions too.  Data are called 
+"data members" and functions are called "member functions".
+
+Car analogy - gas pedal, brake, and steering wheel hide the 
+complexity of what actually makes the car go, stop and turn, 
+respectively.  We aim in this course to build reusable
+pieces of software that are complicated in the inside but easy 
+to use via interfaces for ourselves and colleagues.
+
+Classes are useful because they hide all the "gory" details.  
+In general, "real world" projects can involve hundreds (or 
+even thousands!!) of classes.
+
+Now the bad news; as groovy as classes are, we need to build them as 
+we start out the semester.  Some classes come prebuilt.  Others
+like the Car class we will design today we need to construct.  This 
+is called "defining a class" in the text.
+
+In the same vein, you must create an object before you can 
+access any member functions.  This is part of the reason why C++ 
+is called an object-oriented language: the objects we 
+use provide the functionality we need.
+
+In general, the programs you develop will have a handful of classes 
+and one main program that uses public member functions.
+
+*  The class will be defined in a header file (a .h file)
+
+*  The member functions will be defined in a separate file (a .cpp file)
+
+*  You will compile your programs using a makefile (see 
+directory for an example)
+->  in general, you can modify this as needed for your lab assignments
+
+We will call such function calls, or messages, requesting a 
+service from an object.  
+
+The calling function is often called a "client."  It is defined 
+in the .cpp file using the class scope operator "::" (see notes 
+from class and example here)
+
+The data members are like the attributes of an object and are 
+similar to the data stored in a C struct. Each object, just 
+like each car or anything we think of, has its own data.  
+The functions themselves are shared, but that is for another day 
+to discuss.
+
+Member functions perform the actions, and are associated with 
+specific data members
+
+Public is an "access-specifier" label that states that these 
+are "available to the public", in this case functions outside 
+the class such as the main function.
+
+BY DEFAULT, all members of a class are private unless specifically denoted by "public"
+
+As a rule of thumb, data members are usually private (to support data
+hiding) and member functions are public.  That said, any function not needed by 
+the main function should also be made private.  Although you may
+interchange public and private designations, it is considered good 
+practice to group all of the public elements first followed by private elements.
+
+Like a C struct, a elements of a class are enclosed by { } and 
+ended with a ;
+
+More about access specifiers:  note by default all members of a 
+class are private unless specifically denoted by "public"
+
+Any function that *sets* data members via the client are sometimes 
+called mutators.  We’ll call these set functions.
+
+Similarly, any function that reads information stored in private 
+data members are sometimes called accessors.  We’ll call these get functions.
+

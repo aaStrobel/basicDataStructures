@@ -1,0 +1,93 @@
+Text reading for today:
+-------------------
+
+Brief introduction to constructors:  Section 3.5
+Preferred way to validate input: Section 3.8
+
+Time example:  Section 9.2 and online lecture notes
+-  preprocessor wrapper to avoid multiple includes 
+-  printUniversal :  example of data hiding, what the user sees is not necessarily the same data stored inside of the class
+- Member functions as “global” functions:  no parameters are needed because the class “knows” what to do.
+
+Class scope (section 9.3)
+Constructors with default arguments (section 9.6)
+
+
+(longer than usual) Review of last class:
+--------------------------------
+
+Remember, classes enable a C++ program to model objects:
+-	Attributes (data members)
+-	Behaviors or operators (member functions)
+
+C++ is *extensible* because we can develop classes with cool features, 
+and such features are often termed user-defined types (unlike the 
+defaults like int)
+
+Functions and data should be private unless it can be shown the main 
+function must use them.  Data members are typically private because 
+we want to "hide" these from the program accessing them.  This is 
+called data hiding.
+
+Although you may interchange public and private designations, it 
+is considered good practice to group all of the public elements 
+first followed by private elements.
+
+Constructors are special functions that initialize the values of data 
+members.  Constructors are often placed before methods and after the 
+"public" designation.
+
+Just like member functions, constructors can be "overloaded" i.e., 
+different constructors based on different prototypes.  The compiler 
+is smart enough to figure out which one to use based on the arguments.
+
+Today:
+------
+
+Notes based on Chapter 9
+
+Using #ifndef/#define/#endif prevents including the same header in 
+multiple places.  It is good practice to use the same name of the 
+header in CAPS and the "." replaced with "_"  (see sample time.h 
+file).  This will keep you from running into errors where classes 
+are defined twice.
+
+Data members can not be initialized where they are defined.  
+So there are two options:
+
+1.)  Use a constructor as we have been talking about
+
+2.)  Specify default parameters in a construction as follows in the prototype:
+
+Time (int= 0, int = 0, int = 0);
+
+and in the constructor:
+
+Time::Time (int h, int m, int s) {
+ 
+    ...
+
+}
+
+Scope
+-----
+
+Data members are at "class scope" i.e., they can be seen in the class but not 
+elsewhere.  These are equivalent to global variables for the class.
+
+Nonmember functions placed outside of a class are at file scope depending 
+on their location.  For example, a function outside of a class in the main 
+program can be seen by all classes if desired.  This is generally not needed, 
+as most assignments will be contained completely in a class.  
+
+Variables in a member function have block scope, just as they do in other 
+functions
+
+Scope, combined with constructors and set/get functions often lead to 
+smaller programs/function calls.  For example, all initialization is taken 
+care of by the constructor and all validation/error checking can be done 
+by the get/set functions, eliminating the need to do these in the member 
+functions.  Further, because data members have class scope, they do not 
+have to be provided as arguments to member functions.
+
+

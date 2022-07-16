@@ -1,0 +1,27 @@
+
+Linked Lists
+——————
+
+You have seen and performed several operations on sequential list such as array. If data is not sorted, searching
+for an item in the array can be very time-consuming, especially with a large array. Once data is sorted, you can use
+a binary search and improve the search algorithm. However, in this case, insertion and deletion become time-consuming.
+Another limitation is that the array size must be fixed during execution, new items can be added only if there is room.
+
+Today we will introduce linked list that can overcome some of these problems. 
+
+A linked list is a collection of components called nodes. Every node (except the last node) contains the address of the next
+node. Thus, every node in a linked list has two components: one to store relevant information (that is, data), and one to store
+the address, called link, of the next node the list. The address of the first node in the list is stored in a separate location, 
+called the head or first. The link field of last node has to point to NULL. 
+
+Because each node of a linked list has two components, we need to declare each node as a class. The data type of each node depends on the
+specific application. The link component of each node is a pointer. The data type of this pointer variable is the node type itself. For example:
+
+	class ListNode 	{		   friend class List< NODETYPE >; // make List a friend				public:		   ListNode( const NODETYPE & ); // constructor		   NODETYPE getData() const; // return data in node		private:		   NODETYPE data; // data		   ListNode< NODETYPE > *nextPtr; // next node in list	}; // end class ListNode 
+The basic operations of a linked list are as follows: search the list to determine whether a particular item is in the list, insert an item in the list, and delete an item from the list. 
+
+A doubly linked list is a linked list in which every node has a next pointer and a back pointer. In other words, every node contains the address of the next node (except the last node), and every node contains the address of the previous node (except the first node).
+
+Both stack and queue, which we discussed previously, can have a linked list implementation just as easily as an array. 
+
+

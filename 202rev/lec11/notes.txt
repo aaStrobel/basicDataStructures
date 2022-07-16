@@ -1,0 +1,85 @@
+
+Today:
+------
+
+deconstructors
+const
+member initialization
+
+Friends : Section 10.4 in D&D
+This pointer: Section 10.5
+
+Friends:
+-------
+
+A friend function/class is a function/class defined outside of a given class' scope,
+but given access to non-public (and public) data / functions.
+
+Friend functions are not member functions, but rather functions you
+are comfortable letting modify data.  In general friends are bad
+except for a few choice examples we will discuss throughout the semester.  
+Friend functions can enhance performance as member can be accessed directly.
+
+To define a friend, simply add code similar to the examples below in
+your class.  
+Although friends can be placed anywhere, it is preferred practice they
+be placed at the top of the class definition before the "public:" specifier.
+
+friend void setX();
+friend class CoolClass;
+
+NOTE:  friendship is given not taken, therefore it is neither symmetric or transitive.
+For example, if B is a friend of A, A is not necessarily a friend of B.  Likewise,
+C is not automatically a friend of A if B is a friend of A and C is a friend of B.
+
+ALSO NOTE:  Friends of a class are not member functions.  They are
+just given 
+the same rights as member functions.
+
+
+Final note:  it is good practice to place friend definitions first in
+your code even 
+though public, private, and protected do not constrain them at all (see text).
+
+This pointer:
+----------
+
+How do objects know which data member is which?  Whenever a non-static (usual)
+member function is run, a pointer is implicitly given to the function by the compiler.
+
+This pointer, aptly called "this", can be used implicitly or explicitly.  For example:
+
+x = value;            // implicit reference to this
+this->x = value       // explicit, does the same as above
+(*this).x = value     // ditto
+
+** discussion of simple this.cpp example **
+
+Note that *(this.x) is wrong because . has a higher precedence than *
+
+This pointers will be useful in cascading (that we will discuss next week in-depth)
+operators like cout and . (plus overloading)
+
+Note that the "." operator goes left to right.  So, as in the text, something like this
+is possible.
+
+Time myTime;
+
+myTime.setTime(12, 0, 0).printStandard();
+
+The function setTime would look something like this:
+
+Time &Time::setTime (int h, int m, int s) {
+
+	setHour (h);
+	setMinute(m);
+	setSecond(s);
+	return *this;
+
+}
+
+This may not seem interesting now, but could be useful when we overload the output operator for our
+class and would like to do something like this:
+
+cout << Foo << Bar;
+

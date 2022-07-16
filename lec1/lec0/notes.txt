@@ -1,0 +1,85 @@
+Prof. Scott
+Lecture date:  1/21/21
+
+* examples from CS102  ->  hello world, input output, other basics 
+
+Brief discussion of stream operators, preprocessor, namespaces
+
+You should also read Chapters 2 and 3 (if you were not planning on
+already) to familiarize yourself with C++ syntax after class.
+
+NOTE!!!  main function must always exist, just like in C!
+
+
+Additional examples to show similarities with C/help with prelab:
+-------------------------
+
+-> add.cc :    variables, input output, sums
+-> stat.cpp:   arrays, for loops, brief into to C++ strings
+-> digits.cc:  while loops
+-> sizes.cpp:  uses sizeof to determine memory required for different types (see below)
+
+Variables
+---------
+
+We will be starting with very "C-like" programs that mix C/C++ syntax pretty intentionally.  This
+may or may not be a review, but variables at this point come from a few basic "groups":
+
+integer:  char, short, int, long, long long  (char is less than short, see sample program
+real:  float, double, long double
+
+Static arrays/aggregrate data types (struct)
+
+Classes and objects (aggregate data types boosted with OOP principles)
+
+Note:  Aggregate data types are contigious in memory, starting at the address of the variable.  So,
+for example, for a static array of 10 ints (40 bytes on tesla), the first element is A + 0, second
+element is A + 4, etc.  These "jumps" are why we use A[0], A[1], A[2], etc. as the compiler will use
+the initial address (i.e, &A) for the first element, shift one element (here 4 bytes), two elements
+(8), etc.  This may or may not be important in CS140 but it is something we should cover and you
+should know.
+
+Variable scope
+--------------
+
+Variables in C++ can have different scope.  They are, in short:
+
+global :  declared outside functions, please don't use unless you have an excellent reason!
+
+local:  declared inside { } blocks.  Note each function can have different scopes, e.g.:
+
+int main () {
+
+    int a = 10;
+    if (a > 0) {
+
+       Foo b;
+       ...
+
+    }
+
+    // lots of code!
+
+}
+
+It may or may not matter (again) but in C++ all variables are "destroyed" when they leave scope.  As
+a result, b (of type Foo) will be destroyed at the first } and a will be destroyed at the second 
+(with, presumably lots of other variables declared in-between).
+
+Remember:  all variables go "poof!" after { } blocks
+
+Class scope -- we'll cover this later
+
+Associated reading from text:
+-------------------------
+
+Review Figures 1.6-1.11 and associated text just in case, especially
+if you have not had Fundamentals I.
+
+First C++ program:  Section 2.2 in D&D
+-	main function and output streams
+-	see hello.cc in the lecture notes
+
+Second C++ program:  Section 2.4
+-	adding two numbers; sample code in lecture notes as add.cc
+
