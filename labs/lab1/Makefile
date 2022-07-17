@@ -2,16 +2,16 @@ CXX=		g++
 CXXFLAGS=	-g -Wall -std=gnu++11
 SHELL=		bash
 
-all:	toecheck solution
+all:	toecheck toe
 
 toecheck:	toecheck.cpp
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
-solution: solution.cpp
+toe: toe.cpp
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
 clean:
-	rm -f toecheck solution
+	rm -f toecheck toe
 
 test:		test-output1 test-output2 test-output3 test-output4 test-output5 test-output6 test-output7 test-output8
 
