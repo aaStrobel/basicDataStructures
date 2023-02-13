@@ -14,5 +14,5 @@ test:		test-primes2
 
 test-primes2:	primes2
 	@echo Testing easy input/output...
-	@diff --suppress-common-lines -y <(./primes2 < input) output
+	@diff -y <(./primes2 < input) output
 
